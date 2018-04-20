@@ -58,7 +58,7 @@
 						aria-expanded="false">접속하기<span class="caret"></span></a> <!-- #은 현재가르키고있는 링크가 없다. caret 은 하나의 아이콘 같은 것이다.  -->
 					<ul class="dropdown-menu">
 						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
+						<li><a href="join.html">회원가입</a></li>
 					</ul>
 				</li>
 			</ul>
