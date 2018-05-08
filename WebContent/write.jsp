@@ -38,9 +38,9 @@
 		</div>
 		<div class="callapse navbar-collapse" id="bs-example-navbar-callapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="main.jsp">메인</a> <!-- main이라는 하나의 링크를 검 -->
+				<li><a href="main.jsp">메인</a> <!-- main이라는 하나의 링크를 검 -->
+				<li class="active"><a href="bbs.jsp">게시판</a>
 				<!-- active 는 현재 선택된 현재의 페이지를 의미. 단 한개의 페이지에만 들어갈수잇음.  -->
-				<li><a href="bbs.jsp">게시판</a>
 			</ul>
 			<%
 				if (userID == null) { /* 로그인이 되어 있지 않다면 회원가입이나 로그인을 할 수 있도록 네비게이션을 만듬. */
@@ -80,40 +80,32 @@
 			%>
 		</div>
 	</nav>
+	<!-- 테이블을 만듦으로써 디자인을 할 수 있음 -->
 	<div class="container">
-		<div class="jumbotron">
-			<div class="container">
-				<h1>웹 사이트 소개</h1>
-				<p>이 웹사이트는 부트스트랩으로 만든 JSP 웹 사이트입니다. 최소한의 간단한  로직만을 이용해서 개발했습니다. 디자인 템플릿으로는 부트스트래을 이용했습니다.</p>
-				<p><a class="btn btn-primary btn-pull" href="#" role-"button">자세히 알아보기</a></p> 
-				<!-- 일반 적으로 점보트론 안에는 a태그를 이용해서 어떠한 페이지로 이동할 수 있도록 버튼을 만들어줌. a태그를 p태그로 한번 감쌈. -->
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="images/1.jpg">
-				</div>
-				<div class="item">
-					<img src="images/2.jpg">
-				</div>
-				<div class="item">
-					<img src="images/3.jpg">
-				</div>
-			</div>
-			<a class="lef carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevran-left"></span>
-			</a>
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevran-right"></span>
-			</a>
+		<div class="row">
+			<form method="post" action="writeAction.jsp"> 
+			<!-- method:post 로 해서 보내지는 내용이 숨겨지도록 만들어주고 글제목과 내용은 writeAction으로 보내줌.   -->
+				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+					<thead>
+						<tr>
+							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>
+						</tr>
+						<!-- colspan="2"은 총 2개만큼의 열을 잡아먹을 수 있게. -->
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
+							<!-- input 은 특정한 정보를 action 페이지로 보내기 위해 사용 -->
+						</tr>
+						<tr>
+							<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
+							<!-- textarea은 어떤 장문의 글을 작성할때 사용.  -->
+						</tr>
+					</tbody>
+				</table>
+				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+					<!-- 글쓰기 버튼을 만들었고 이걸 눌렀을 경우 실제로 어떠한 데이터를 action 페이지로 보낼 수 있는 것이다. -->
+			</form>
 		</div>
 	</div>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"> </script>
